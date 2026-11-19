@@ -37,7 +37,7 @@ export function trophyMatches(trophy, earned, filters) {
   if (filters.missableOnly && !trophy.missable) return false;
   if (filters.search) {
     const needle = filters.search.toLowerCase();
-    const haystack = `${trophy.name} ${trophy.description} ${trophy.guide}`.toLowerCase();
+    const haystack = `${trophy.name ?? ''} ${trophy.description ?? ''} ${trophy.guide ?? ''}`.toLowerCase();
     if (!haystack.includes(needle)) return false;
   }
   return true;
@@ -156,13 +156,19 @@ export function buildTrophyCard(trophy, earned, spoilerOn, onToggle) {
 
   const source = document.createElement('p');
   source.className = 'source';
-  source.append(document.createTextNode(`Source: ${trophy.source} — `));
-  const link = document.createElement('a');
-  link.href = trophy.sourceUrl;
-  link.target = '_blank';
-  link.rel = 'noopener';
-  link.textContent = trophy.sourceUrl.replace(/^https?:\/\//, '');
-  source.append(link);
+  // A trophy without a source URL must not render a link to "undefined":
+  // show the source name as plain text instead.
+  if (typeof trophy.sourceUrl === 'string' && trophy.sourceUrl.trim()) {
+    source.append(document.createTextNode(`Source: ${trophy.source} — `));
+    const link = document.createElement('a');
+    link.href = trophy.sourceUrl;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = trophy.sourceUrl.replace(/^https?:\/\//, '');
+    source.append(link);
+  } else {
+    source.textContent = `Source: ${trophy.source || 'PlayStation official trophy list'}`;
+  }
   card.append(source);
   return card;
 }
