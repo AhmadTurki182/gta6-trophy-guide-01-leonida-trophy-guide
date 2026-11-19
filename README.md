@@ -1,38 +1,38 @@
+# Leonida Trophy Guide
+
 [![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/AhmadTurki182/gta6-trophy-guide-01-leonida-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/AhmadTurki182/gta6-trophy-guide-01-leonida-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-# Leonida Trophy Guide — GTA VI · 55 PS5 Trophies
+An offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI, built for the [gta6-trophy-guide-01](https://make.fun/bounty/gta6-trophy-guide-01) bounty on make.fun.
 
-An offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI, built for the [make.fun bounty “Build the best GTA 6 trophy guide”](https://make.fun/bounty/gta6-trophy-guide-01).
+## What it is
 
-Every trophy is shown with its official name, description and grade, plus a guide written in our own words that cites its sources — what to do, where and how, and when it can be missed. The guide gives a roadmap to the platinum (story chapters, side stories, open-world cleanup, 100% completion), flags the one truly missable trophy, and tracks your progress: a checklist saved in the browser, export to a file and import back, filters by kind (story, missable, collectibles, activities, online), and a spoiler setting that hides story trophies until they are earned.
+- **Every trophy, official and complete:** all 55 names, descriptions and grades (1 platinum, 2 gold, 6 silver, 46 bronze; 27 visible, 28 hidden), each with a guide written in our own words that names its source beside it.
+- **A tracker:** tick trophies off and the checklist is saved in the browser (localStorage), with export to a JSON file and import back.
+- **Filters by kind:** grade, story / side strands / activities / collectibles / exploration / money, visible vs hidden, earned vs not yet, missable only, plus search.
+- **Spoiler-free mode:** hides the names and descriptions of story trophies until they are earned.
+- **A roadmap to the platinum:** five stages, built from the official descriptions — save discipline, the one missable trophy (Positive Mental Attitude, Chapter 1), the story, the stranger strands, then cleanup to 100% (~200 hours).
+- **Missable flags:** Positive Mental Attitude and Strangers & Freaks (Yago's timed race in Chapter 3).
+
+## Honesty note
+
+Rockstar, Sony and Microsoft have not published the trophy list themselves. The names, descriptions and grades come from the trackers Exophase and PSNProfiles, as reported on 18 November 2026, which the competition kit treats as the official list. All 55 trophies are single-player; there are no online trophies. Xbox has the same 55 achievements for 1,000 Gamerscore.
 
 ## Run it
-
-Static files, no build step, works with the network off:
 
 ```sh
 node serve.ts
 # open http://localhost:8080
 ```
 
-## Layout
+No build step, no network at run time: `app/` is plain static files.
 
-- `app/index.html` — the guide page
-- `app/style.css` — the look (deep Leonida night, neon pink and teal; system fonts only)
-- `app/app.js` — bootstrap and controls
-- `app/ui.js` — rendering: roadmap, checklist, filters, progress
-- `app/state.js` — progress saved in localStorage, plus export / import
-- `app/data/trophies.json` — the 55 trophies: official name, description and grade, our own guide and its cited sources, kind, missable flag, count and roadmap stage
-- `main.ts` — the entry program: copies `app/` and `screenshots/` to `/output` and writes `dossier.json`
-- `screenshots/` — four real renders of the app
+## Hand it in
 
-## Sources
-
-Official names, descriptions and grades are as PlayStation publishes them, via the trophy trackers Exophase and PSNProfiles. Guide facts come from the guides named beside each trophy: OutputLag, HowToVideoGame, CryptoGames and GTA Vice City Hub. Every guide is written in our own words — a source is cited, never copied.
-
-This is an unofficial, fan-made guide. Not affiliated with Rockstar Games or Sony Interactive Entertainment. No Rockstar logo, artwork, box art or game screenshot is used anywhere.
+```sh
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+```
 
 ## License
 
