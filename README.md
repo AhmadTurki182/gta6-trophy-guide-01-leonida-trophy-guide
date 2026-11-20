@@ -1,43 +1,40 @@
-# Leonida Trophy Guide — GTA 6 Platinum Tracker
+# Leonida Trophy Guide
 
-[![make.fun](https://make.fun/api/competitions/gta6-trophy-guide-01/badge.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
-[![make.fun leaderboard](https://make.fun/api/competitions/gta6-trophy-guide-01/leaderboard-badge.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
-[![make.fun entry](https://make.fun/api/competitions/gta6-trophy-guide-01/entry-badge.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
+[![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
+[![rank](https://make.fun/badge/gta6-trophy-guide-01/AhmadTurki182/gta6-trophy-guide-01-leonida-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
+[![reward](https://make.fun/badge/gta6-trophy-guide-01/AhmadTurki182/gta6-trophy-guide-01-leonida-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-An offline, open-source guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI. See the competition: https://make.fun/bounty/gta6-trophy-guide-01
+An offline trophy guide and progress tracker for Grand Theft Auto VI on PlayStation 5, built for the [gta6-trophy-guide-01 bounty](https://make.fun/bounty/gta6-trophy-guide-01).
 
-## What it is
+## What it covers
 
-Every trophy is shown with its official PlayStation name, description and grade (1 Platinum, 2 Gold, 6 Silver, 46 Bronze; 28 hidden until earned), plus a guide written in our own words that says what to do, where and how, and when it can be missed — with its sources cited beside it. Names, descriptions, grades, hidden flags and PSN counts follow the official list as published by Exophase and PSNProfiles, which agree on every name, description and grade. Where the official list does not pin down a place or a step, the guide says so instead of inventing one.
+All 55 official PlayStation trophies — 1 Platinum, 2 Gold, 6 Silver and 46 Bronze, including the 28 hidden ones — each with its official name, description and grade, plus an original guide written for this project: what to do, where to do it, when it can be missed, and how much of a grind it is (for example, 42 Shooting Range challenges for The Shootist, 250 stunts for Cunning Stunts, 100 vehicles for Whip It Good).
 
 ## Features
 
-- **Checklist tracker** — tick trophies off; progress is saved in the browser (localStorage) and shown as a count and a progress bar to the platinum.
-- **Filters** — by kind (story, missable, collectibles, activities), by grade, by earned/remaining, plus full-text search.
-- **Spoiler setting** — hides the names and descriptions of story trophies until you earn them.
-- **Export / import** — download your progress as a JSON file and import it back on any machine.
-- **Roadmap to the platinum** — six stages in order: story playthrough, stranger strands, activities, collectibles, cleanup and grind, platinum. Stage progress is counted live from your checklist.
-- **Missable trophies flagged** — 13 trophies that need a partner, a one-off moment or one specific place, listed on their own page and flagged in the checklist.
-- **Offline** — static files only, no network requests, no cookies, no service worker, no Rockstar logo or official artwork.
+- **Checklist tracker** — tick trophies off as you earn them; progress is saved in your browser (localStorage) and survives reloads.
+- **Progress bar and grade counts** — see your overall percentage plus Platinum / Gold / Silver / Bronze totals at a glance.
+- **Filters and search** — filter by story, missable, collectibles, activities, earned, or not earned; filter by grade; search by name or description.
+- **Missable flags** — the six missable trophies (Hot Together, Retail Therapy, Gunslinger, Catch Me If You Can, Sneakthief, Ten Pin) are flagged so you grab them while their moments are available.
+- **Spoiler setting** — turn on spoiler protection and story trophy descriptions and guides stay hidden until you earn them.
+- **Roadmap to the platinum** — a four-stage plan: story playthrough, side content, collectibles and grinds, then cleanup and 100% completion.
+- **Export and import** — download your progress as JSON and import it on another device.
+- **Fully offline** — no network requests at runtime, no cookies, no service worker, no third-party code.
 
 ## How to run it
 
 ```sh
 node serve.ts
-# then open http://localhost:8080
 ```
 
-Or serve the `app/` folder with any static server and open `app/index.html`. Everything the app loads is a file inside `app/`.
+Then open http://localhost:8080. Or open `app/index.html` directly in a browser (the trophy list loads from `app/data/trophies.json`, so serving it over HTTP is the reliable way).
 
-## How to hand it in
+To build the submission dossier:
 
 ```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
-# writes out/dossier.json (schema makefun/dossier/v1, 4 screenshots)
 ```
-
-`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/` into the output directory and writes the dossier with the kit's `vendor/makefun-frontend.ts`. It creates the output directory and clears only its children — it never deletes the output directory itself, because on the grader `/output` is a mount point that cannot be deleted.
 
 ## License
 
-MIT — see `LICENSE`.
+MIT — see [LICENSE](LICENSE).
