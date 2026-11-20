@@ -1,99 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Trophy Guide — GTA VI 55 Trophies</title>
+<title>Leonida Trophy Guide — Grand Theft Auto VI</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, a roadmap to the platinum, missable flags, and a checklist that saves in your browser.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="hero">
-  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies &middot; offline guide</p>
-  <h1>Leonida Trophy Guide</h1>
-  <p class="tagline">Every trophy, its official name and grade, a guide in our own words with its source, and a tracker that remembers your progress.</p>
-  <div class="progress-wrap" id="progress-wrap">
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-    <p class="progress-text" id="progress-text">0 of 55 earned</p>
-    <p class="grade-counts" id="grade-counts"></p>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="lede">Every one of the 55 trophies — official names, descriptions and grades — with a guide to each, a roadmap to the platinum, and a checklist that remembers your progress. Works fully offline; nothing leaves your browser.</p>
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-numbers">
+        <span class="big"><strong id="earned-count">0</strong><span class="of"> / 55 earned</span></span>
+        <span class="grade-tally" id="grade-tally"></span>
+      </div>
+      <div class="progress-bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="progress-note" id="progress-note"></p>
+    </div>
   </div>
 </header>
 
 <main>
-<section class="note" id="sources-note">
-  <h2>About this list</h2>
-  <p>Rockstar, Sony and Microsoft have not published the trophy list themselves. The names, descriptions and grades here come from the trackers Exophase and PSNProfiles, as reported on 18 November 2026, which the competition kit treats as the official list. Every guide below is written in our own words and names its source beside it; no guide text is copied from another site.</p>
-  <p>All 55 trophies are single-player. There are no online trophies. Xbox has the same 55 achievements for 1,000 Gamerscore. There is no mission replay and no New Game Plus, so the roadmap below matters.</p>
-</section>
+  <section class="toolbar" aria-label="Tracker controls">
+    <div class="search-box">
+      <label for="search">Search trophies</label>
+      <input type="search" id="search" placeholder="Type a name, mission or keyword…" autocomplete="off">
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filter by kind">
+      <button type="button" class="chip is-active" data-filter="all">All 55</button>
+      <button type="button" class="chip" data-filter="story">Story</button>
+      <button type="button" class="chip" data-filter="missable">Missable</button>
+      <button type="button" class="chip" data-filter="collectibles">Collectibles</button>
+      <button type="button" class="chip" data-filter="activities">Activities</button>
+      <button type="button" class="chip" data-filter="online">Online</button>
+    </div>
+    <div class="toggles">
+      <label class="switch">
+        <input type="checkbox" id="spoiler-toggle" checked>
+        <span class="switch-label">Hide story spoilers until earned</span>
+      </label>
+      <div class="io-buttons">
+        <button type="button" id="export-btn">Export progress</button>
+        <button type="button" id="import-btn">Import progress</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden>
+        <button type="button" id="reset-btn" class="quiet">Reset</button>
+      </div>
+    </div>
+    <p class="toolbar-status" id="toolbar-status" role="status"></p>
+  </section>
 
-<section class="roadmap" id="roadmap">
-  <h2>Roadmap to the platinum — about 200 hours</h2>
-  <ol class="stages">
-    <li><strong>Stage 1 — Save discipline first.</strong> There are 15 manual save slots plus 1 autosave. Keep a save at the start of every chapter and one just before the final mission. Never use cheats on your trophy save: cheats switch off trophies and saving there.</li>
-    <li><strong>Stage 2 — The missable one.</strong> Meditate at the balcony of Jason&rsquo;s house on the morning after &ldquo;Down to Earth&rdquo; in Chapter 1. That spot vanishes when Chapter 1 ends, and with it the Positive Mental Attitude trophy. Do it early and keep your Chapter 1 save until it pops.</li>
-    <li><strong>Stage 3 — Story, Chapters 1&ndash;4 and the finale.</strong> Twelve story trophies: the opening mission, the four chapter trophies, the final mission, and six mission trophies. All unmissable &mdash; just play. Race Yago&rsquo;s strand in Chapter 3 at once when it appears; it runs on a timer.</li>
-    <li><strong>Stage 4 — Strangers and side strands.</strong> Eight stranger strands for Strangers &amp; Freaks (Andy, Billy and Tyrone do not count &mdash; they have their own trophies), plus the six side-character finales. Everything here stays open after the credits.</li>
-    <li><strong>Stage 5 — Cleanup to 100% and platinum.</strong> Stunts (250 for the trophy, 300 for 100%), 42 Shooting Range golds, 14 drone races, 8 bank vaults, 39 illegal operations, 200 of 277 vehicles, 70 of 80 challenges, and the money trophies. The 100% checklist appears under Progress &gt; Stats &gt; 100% Completion after the story.</li>
-  </ol>
-  <p class="missable-callout" id="missable-callout"></p>
-</section>
+  <section class="checklist" aria-labelledby="checklist-title">
+    <h2 id="checklist-title">Trophy checklist</h2>
+    <p class="section-intro" id="checklist-intro"></p>
+    <p class="empty-state" id="empty-state" hidden></p>
+    <ol class="trophy-list" id="trophy-list"></ol>
+  </section>
 
-<section class="controls" id="controls">
-  <div class="control-row">
-    <label>Search <input id="search" type="search" placeholder="Trophy name or guide word&hellip;" autocomplete="off"></label>
-    <label>Grade <select id="grade-filter">
-      <option value="all">All grades</option>
-      <option value="platinum">Platinum</option>
-      <option value="gold">Gold</option>
-      <option value="silver">Silver</option>
-      <option value="bronze">Bronze</option>
-    </select></label>
-    <label>Kind <select id="kind-filter">
-      <option value="all">All kinds</option>
-      <option value="story">Story</option>
-      <option value="side">Side strands</option>
-      <option value="activity">Activities</option>
-      <option value="collectible">Collectibles</option>
-      <option value="exploration">Exploration</option>
-      <option value="money">Money &amp; robberies</option>
-      <option value="platinum">Platinum &amp; 100%</option>
-    </select></label>
-    <label>Visibility <select id="visibility-filter">
-      <option value="all">Visible + hidden</option>
-      <option value="visible">Visible only</option>
-      <option value="hidden">Hidden only</option>
-    </select></label>
-    <label>Progress <select id="earned-filter">
-      <option value="all">All trophies</option>
-      <option value="earned">Earned only</option>
-      <option value="unearned">Not earned yet</option>
-    </select></label>
-  </div>
-  <div class="control-row">
-    <label class="check"><input id="missable-only" type="checkbox"> Missable only</label>
-    <label class="check"><input id="spoiler-toggle" type="checkbox"> Spoiler-free mode: hide story trophies until earned</label>
-    <span class="shown-count" id="shown-count"></span>
-  </div>
-  <div class="control-row" id="export-row">
-    <button id="export-btn" type="button">Export progress (JSON)</button>
-    <label class="import-label">Import progress <input id="import-file" type="file" accept="application/json,.json"></label>
-    <button id="reset-btn" type="button">Reset progress</button>
-    <span class="export-hint" id="export-hint">Progress is saved in this browser automatically.</span>
-  </div>
-</section>
+  <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
+    <h2 id="roadmap-title">Roadmap to the platinum</h2>
+    <p class="section-intro">One playthrough is enough: there are no difficulty trophies, no online trophies and no New Game Plus. There is also no mission replay, so keep a manual save at the start of every chapter and one more before the final mission. Cheats switch trophies off, so leave them alone on a trophy run. About 200 hours in all, most of it after the credits.</p>
+    <div class="stage-grid" id="stage-grid"></div>
+    <aside class="missable-callout" id="missable-callout"></aside>
+  </section>
 
-<section class="list" id="trophy-list" aria-live="polite"></section>
-
-<section class="export-panel" id="export-panel">
-  <h2>Export &amp; import</h2>
-  <p>Export writes a small JSON file with the names of the trophies you have ticked. Import reads such a file back and restores your ticks. The file never leaves your computer unless you share it yourself.</p>
-  <p id="export-status">No export yet this session.</p>
-</section>
+  <section class="about" aria-labelledby="about-title">
+    <h2 id="about-title">About this guide</h2>
+    <p>Names, descriptions and grades are shown as PlayStation publishes them; the trophy list was taken from Exophase and cross-checked against PSNProfiles and TrueAchievements. Each guide is written in our own words and names its sources beside it, so you can see where every fact comes from — a guide never copies another guide's text. Where the exact steps of a trophy are not confirmed yet, the guide says so instead of guessing.</p>
+    <p>This guide is an unofficial fan project. It is not affiliated with Rockstar Games and uses no Rockstar logo, artwork, box art or game screenshots. Progress is stored only in this browser (localStorage); export and import move it as a file you own.</p>
+  </section>
 </main>
 
 <footer>
-  <p>Leonida Trophy Guide — an unofficial fan guide. Grand Theft Auto and GTA are trademarks of their owners; this guide uses no Rockstar logo or official artwork. Trophy names, descriptions and grades: Exophase / PSNProfiles. Guides: written for this page, sources named beside each trophy.</p>
+  <p>Leonida Trophy Guide &middot; 55 trophies &middot; 1 Platinum, 2 Gold, 6 Silver, 46 Bronze &middot; 28 hidden &middot; 0 online</p>
 </footer>
 
-<script type="module" src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
